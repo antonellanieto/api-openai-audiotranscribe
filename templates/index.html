@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rubik+Maps&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap" rel="stylesheet">
+
+    
+    <title>Audio a texto</title>
+</head>
+<body>
+    <h1>Transforma tu audio a texto</h1>
+
+   <div class="">
+    <form action="/transcribe" method="post" enctype="multipart/form-data">
+        
+        <input type="file" id="audioFile" name="file" accept=".mp3, .wav" style="display: none;">
+        <button type="button" onclick="document.getElementById('audioFile').click()" class="botones-primeros">Carga tu audio</button>
+        <button type="submit" class="botones-primeros">Transcribe tu audio</button>
+    </form>
+
+    <div class="resultado">
+
+    {% if transcription %}
+        <h2 class="titulo-resultado">Resultado:</h2>
+        <p class="text-resultado">{{ transcription }}</p>
+
+    </div>
+
+        <!-- New form for generating response -->
+        <form action="/generate-response" method="post" class="respuesta-generalizada">
+            <input type="hidden" name="transcription" value="{{ transcription }}">
+            <button type="submit" class="button-respuesta">Genera tu respuesta personalizada</button>
+        </form>
+        <div class="resultado">
+        <!-- Display the generated response content -->
+        {% if response_content %}
+            <h2 class="titulo-resultado">Respuesta generada:</h2>
+            <p class="text-resultado">{{ response_content }}</p>
+        {% endif %}
+
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

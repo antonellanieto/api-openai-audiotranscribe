@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rubik+Maps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight&display=swap');
+
+
+body {
+    background-color: white;
+   
+    }
+
+
+.container {
+     display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 20vh;
+      font-size: 30px;
+      color: black;
+     font-family: 'IM Fell French Canon', serif;;
+    
+}
+    
+h1{
+    color: black;
+    font-size:120px;
+    margin-left: 80px;
+    font-family: 'Zilla Slab Highlight', sans-serif;
+ }
+
+
+ button{
+    font-size: 30px;
+    color: black;
+   font-family: 'IM Fell French Canon', serif;
+   background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  
+ }
+
+
+ .botones-primeros{
+    margin: 25px;
+    margin-top: 35px;
+
+ }
+
+
+ .titulo-resultado{
+    font-size: 30px;
+    margin-top: 5px;
+ 
+    font-family: 'Zilla Slab Highlight', sans-serif;
+    text-align: center;
+ }
+
+
+
+ .resultado{
+   color: black;
+   border: 2px solid #ccc;  /* Add a 1px solid border with a light gray color */
+   padding: 5px;           /* Add some padding for space inside the border */
+   margin: 20px;    
+   margin-top: 100px;
+   margin-left: 50px;
+   margin-right: 50px;
+
+ }
+
+
+ .text-resultado{
+    font-size: 25px;
+    margin-left: 50px;
+     margin-right: 50px;
+     font-family: 'IM Fell French Canon', serif;;
+ }
+
+ .button-respuesta{
+    margin-top: 55px;
+    margin-bottom: 55px;
+    margin-left: 530px;
+ }
+
+
+ .respuesta-generalizada{
+    
+    margin-top: 5px;
+
+ }
