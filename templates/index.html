@@ -21,20 +21,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a3268e60e.js" crossorigin="anonymous"></script>
 
     
     <title>Audio a texto</title>
 </head>
 <body>
-    <h1>Transforma tu audio a texto</h1>
 
-   <div class="">
-    <form action="/transcribe" method="post" enctype="multipart/form-data">
-        
+    <div>
+    <h1>Transforma tu audio a texto</h1>
+    
+    <form action="/transcribe" method="post" enctype="multipart/form-data" class="primer-formu">
         <input type="file" id="audioFile" name="file" accept=".mp3, .wav" style="display: none;">
-        <button type="button" onclick="document.getElementById('audioFile').click()" class="botones-primeros">Carga tu audio</button>
-        <button type="submit" class="botones-primeros">Transcribe tu audio</button>
+        <button type="button" onclick="document.getElementById('audioFile').click()" class="botones-primeros" id="botones-primeros">Carga tu audio <i class="fas fa-microphone"></i></button>
+        <button type="submit" class="botones-primeros" id="botones-primeros">Transcribe tu audio <i class="fas fa-book"></i> </button>
     </form>
+</div>
+
 
     <div class="resultado">
 
