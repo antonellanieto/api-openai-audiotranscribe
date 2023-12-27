@@ -22,10 +22,11 @@ from fastapi.responses import PlainTextResponse
 load_dotenv()
 
 #Configurar la clave de la API de OpenAI
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),
-)
-
+# client = OpenAI(
+#     api_key=os.environ.get("OPENAI_API_KEY"),
+# )
+openai_api_key = os.environ.get("OPENAI_API_KEY")
+client = OpenAI(api_key=openai_api_key)
 
 # Crear la aplicación FastAPI
 app = FastAPI()
