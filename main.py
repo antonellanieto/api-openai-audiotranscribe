@@ -1,6 +1,5 @@
 #Importar las bibliotecas necesarias
 from openai import OpenAI
-from pathlib import Path
 from dotenv import load_dotenv
 import os
 import uuid 
@@ -105,12 +104,11 @@ async def transcribe_endpoint(request: Request, file: UploadFile = File(...)):
 
 
 # Ruta para manejar la generación de respuestas basadas en la transcripción
-
 @app.post("/generate-response")
 async def generate_response(request: Request, transcription: str = Form(...)):
     try:
-        # Additional step: Use OpenAI API to generate response
-        # Use OpenAI API to generate response using Chat API
+        # Paso adicional: Utilizar la API de OpenAI para generar una respuesta
+        # Utilizar la API de OpenAI para generar una respuesta utilizando el modelo de Chat
         system_message = "You are a helpful assistant that is good at generating response to messages."
         user_message = f"The audio transcription is: {transcription}"
 
@@ -123,22 +121,23 @@ async def generate_response(request: Request, transcription: str = Form(...)):
 
         )
 
-        # Extract the generated response from the OpenAI API result
+         # Extraer la respuesta generada del resultado de la API de OpenAI
         response_text = generated_response.choices[0].message.content
 
-        # Save the response to a text file
+        # Guardar la respuesta en un archivo de texto
         response_filename = f"response_{uuid.uuid4()}.txt"
         with open(response_filename, 'w') as response_file:
             response_file.write(response_text)
 
-        # Return the content of the response text file
+        # Leer el contenido del archivo de respuesta
         with open(response_filename, 'r') as response_file:
             response_content = response_file.read()
 
-        # Return the path to the response text file
+        # Renderizar la plantilla con la transcripción y el contenido de la respuesta generada
         return templates.TemplateResponse("index.html", {"request": request, "transcription": transcription, "response_content": response_content})
 
     except Exception as e:
+        # Manejar errores y devolver una respuesta de error HTTP
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -146,8 +145,8 @@ async def generate_response(request: Request, transcription: str = Form(...)):
 
 
 
-
+# Iniciar la aplicación FastAPI utilizando el servidor Uvicorn
 if __name__ == "__main__":
     import uvicorn
-
+    # Ejecutar la aplicación en el host 127.0.0.1 y el puerto 8000
     uvicorn.run(app, host="127.0.0.1", port=8000)
