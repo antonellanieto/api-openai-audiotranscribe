@@ -28,7 +28,6 @@ load_dotenv()
 openai_api_key = os.environ.get("OPENAI_API_KEY")
 client = OpenAI(api_key=openai_api_key)
 
-print(f"API Key: {openai_api_key}")
 
 # Crear la aplicación FastAPI
 app = FastAPI()
@@ -112,7 +111,7 @@ async def generate_response(request: Request, transcription: str = Form(...)):
     try:
         # Paso adicional: Utilizar la API de OpenAI para generar una respuesta
         # Utilizar la API de OpenAI para generar una respuesta utilizando el modelo de Chat
-        system_message = "You are a helpful assistant that is good at generating response to messages."
+        system_message = "Eres una persona en Uruguay o Argentina recibiendo un audio de whatsapp, y contestas como un amigo, colega o familiar."
         user_message = f"The audio transcription is: {transcription}"
 
         messages = [{'role': 'system', 'content': system_message}, {'role': 'user', 'content': user_message}]
