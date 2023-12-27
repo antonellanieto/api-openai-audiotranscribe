@@ -28,6 +28,8 @@ load_dotenv()
 openai_api_key = os.environ.get("OPENAI_API_KEY")
 client = OpenAI(api_key=openai_api_key)
 
+print(f"API Key: {openai_api_key}")
+
 # Crear la aplicación FastAPI
 app = FastAPI()
 
